@@ -15,10 +15,44 @@
 		E15B12702F3C57DD000E4D59 /* WeatherAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAppApp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		E15B127D2F3C5999000E4D59 /* Exceptions for "Network" folder in "WeatherApp" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				API.swift,
+				WeatherNetworkManager.swift,
+			);
+			target = E15B125F2F3C4D28000E4D59 /* WeatherApp */;
+		};
+		E15B12832F3C6327000E4D59 /* Exceptions for "DTO" folder in "WeatherApp" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				WeatherResponse.swift,
+			);
+			target = E15B125F2F3C4D28000E4D59 /* WeatherApp */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		E15B12622F3C4D28000E4D59 /* WeatherApp */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = WeatherApp;
+			sourceTree = "<group>";
+		};
+		E15B127A2F3C595C000E4D59 /* Network */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				E15B127D2F3C5999000E4D59 /* Exceptions for "Network" folder in "WeatherApp" target */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		E15B12802F3C631B000E4D59 /* DTO */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				E15B12832F3C6327000E4D59 /* Exceptions for "DTO" folder in "WeatherApp" target */,
+			);
+			path = DTO;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -74,6 +108,7 @@
 		E15B12762F3C5841000E4D59 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				E15B127A2F3C595C000E4D59 /* Network */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -81,6 +116,7 @@
 		E15B12772F3C584C000E4D59 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				E15B12802F3C631B000E4D59 /* DTO */,
 			);
 			path = Models;
 			sourceTree = "<group>";
