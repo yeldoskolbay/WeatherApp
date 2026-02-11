@@ -27,6 +27,12 @@
 		E15B12832F3C6327000E4D59 /* Exceptions for "DTO" folder in "WeatherApp" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				Condition.swift,
+				Current.swift,
+				Day.swift,
+				ForeCast.swift,
+				ForeCastDay.swift,
+				Location.swift,
 				WeatherResponse.swift,
 			);
 			target = E15B125F2F3C4D28000E4D59 /* WeatherApp */;
