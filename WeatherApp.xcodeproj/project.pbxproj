@@ -50,6 +50,7 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				ViewModel/WeatherViewModel.swift,
+				Views/HomeView.swift,
 			);
 			target = E15B125F2F3C4D28000E4D59 /* WeatherApp */;
 		};
