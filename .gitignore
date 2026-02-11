@@ -1,0 +1,15 @@
+# Xcode
+.DS_Store
+xcuserdata/
+*.xcuserstate
+DerivedData/
+*.xccheckout
+*.xcscmblueprint
+
+# SwiftPM
+.build/
+Packages/
+Package.resolved
+
+# Secrets
+API.swift
