@@ -8,11 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		E15B12732F3C57DD000E4D59 /* WeatherAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15B12702F3C57DD000E4D59 /* WeatherAppApp.swift */; };
+		E15B12A22F3CAD19000E4D59 /* RemoteImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15B12A12F3CAD19000E4D59 /* RemoteImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		E15B12602F3C4D28000E4D59 /* WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E15B12702F3C57DD000E4D59 /* WeatherAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAppApp.swift; sourceTree = "<group>"; };
+		E15B12A12F3CAD19000E4D59 /* RemoteImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -172,6 +174,7 @@
 		E15B12792F3C5864000E4D59 /* UIComponents */ = {
 			isa = PBXGroup;
 			children = (
+				E15B12A12F3CAD19000E4D59 /* RemoteImage.swift */,
 			);
 			path = UIComponents;
 			sourceTree = "<group>";
@@ -250,6 +253,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E15B12A22F3CAD19000E4D59 /* RemoteImage.swift in Sources */,
 				E15B12732F3C57DD000E4D59 /* WeatherAppApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

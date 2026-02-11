@@ -23,6 +23,8 @@ struct HomeView: View {
             
             if let weather = viewModel.weather {
                 VStack(spacing: 8) {
+                    RemoteImage(urlString: weather.iconURL)
+                        .frame(width: 90, height: 90)
                     Text("\(weather.city), \(weather.country)")
                         .font(.title)
                     Text("\(weather.temperature,specifier: "%.1f")°C")
