@@ -37,6 +37,15 @@
 			);
 			target = E15B125F2F3C4D28000E4D59 /* WeatherApp */;
 		};
+		E15B12942F3C70AA000E4D59 /* Exceptions for "Domain" folder in "WeatherApp" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				DailyForecast.swift,
+				Weather.swift,
+				WeatherMapper.swift,
+			);
+			target = E15B125F2F3C4D28000E4D59 /* WeatherApp */;
+		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -59,6 +68,14 @@
 				E15B12832F3C6327000E4D59 /* Exceptions for "DTO" folder in "WeatherApp" target */,
 			);
 			path = DTO;
+			sourceTree = "<group>";
+		};
+		E15B12912F3C7078000E4D59 /* Domain */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				E15B12942F3C70AA000E4D59 /* Exceptions for "Domain" folder in "WeatherApp" target */,
+			);
+			path = Domain;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -122,6 +139,7 @@
 		E15B12772F3C584C000E4D59 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				E15B12912F3C7078000E4D59 /* Domain */,
 				E15B12802F3C631B000E4D59 /* DTO */,
 			);
 			path = Models;

@@ -4,6 +4,6 @@ import Foundation
 
 
 struct Forecastday: Decodable {
-    let date : String
-    let day : Day
+    let date : String?
+    let day : Day?
 }

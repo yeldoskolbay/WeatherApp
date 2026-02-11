@@ -21,7 +21,6 @@ final class WeatherNetworkManager {
         }
         
         let (data, response) = try await URLSession.shared.data(from: url)
-        
         guard let httpResponse = response as? HTTPURLResponse else {
             throw URLError(.badServerResponse)
         }
