@@ -52,6 +52,8 @@ final class WeatherViewModel: ObservableObject {
     }
     
     func reload() {
-        await load()
+        Task{
+            await load()
+        }
     }
 }

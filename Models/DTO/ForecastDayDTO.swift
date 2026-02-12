@@ -3,8 +3,8 @@
 import Foundation
 
 
-struct ForecastDay: Decodable {
+struct ForecastDayDTO: Decodable {
     let date : String?
     let day : Day?
-    let hour : [Hour]?
+    let hour : [HourDTO]?
 }

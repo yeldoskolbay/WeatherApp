@@ -3,7 +3,8 @@
 import Foundation
 
 
-struct HourlyForecast: Decodable {
+struct HourlyForecast: Identifiable {
+    let id = UUID()
     let time: String
     let temperature: Double
     let iconURL: String

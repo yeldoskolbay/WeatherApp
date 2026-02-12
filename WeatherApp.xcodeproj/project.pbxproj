@@ -39,9 +39,9 @@
 				Condition.swift,
 				Current.swift,
 				Day.swift,
-				ForeCast.swift,
-				ForeCastDay.swift,
-				HourlyForecast.swift,
+				ForecastDayDTO.swift,
+				ForecastDTO.swift,
+				HourDTO.swift,
 				Location.swift,
 				WeatherResponse.swift,
 			);
@@ -51,6 +51,7 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				DailyForecast.swift,
+				HourlyForecast.swift,
 				Weather.swift,
 			);
 			target = E15B125F2F3C4D28000E4D59 /* WeatherApp */;
