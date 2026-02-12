@@ -5,41 +5,53 @@ import SwiftUI
 
 struct HomeView: View {
     @StateObject private var viewModel = WeatherViewModel()
-    @State private var city = "Almaty"
     var body: some View {
-        VStack(spacing: 20) {
-            TextField("Введите город", text: $city)
-                .textFieldStyle(.roundedBorder)
-                .padding(.horizontal)
-            
-            Button {
-                Task { await viewModel.loadWeather(for: city) }
-            } label: {
-                Text("Загрузить погоду")
-            }
-            if viewModel.isLoading {
-                ProgressView()
-            }
-            
-            if let weather = viewModel.weather {
-                VStack(spacing: 8) {
-                    RemoteImage(urlString: weather.iconURL)
-                        .frame(width: 90, height: 90)
-                    Text("\(weather.city), \(weather.country)")
-                        .font(.title)
-                    Text("\(weather.temperature,specifier: "%.1f")°C")
-                        .font(.largeTitle)
-                    Text(weather.description)
-                        .foregroundStyle(.secondary)
-                }
-            }
-            
-            if let error = viewModel.errorMessage {
-                Text(error)
-                    .foregroundStyle(.red)
-            }
-            Spacer()
+      ScrollView {
+          VStack(alignment: .leading, spacing: 16){
+              HStack{
+                  TextField("Город", text: $viewModel.city)
+                  
+                  Button {
+                      Task { await viewModel.loadWeather(for: viewModel.city)}
+                  } label: {
+                      Text("Загрузить")
+                  }
+                  .buttonStyle(.borderedProminent)
+              }
+              .padding(.horizontal, 16)
+              .padding(.top, 12)
+              
+              if viewModel.isLoading {
+                  ProgressView("Загрузка...")
+                      .padding(.horizontal, 16)
+              }
+              if let error = viewModel.errorMessage {
+                  Text(error)
+                      .foregroundStyle(.red)
+                      .padding(.horizontal, 16)
+              }
+              if let weather = viewModel.weather {
+                  VStack(alignment: .leading, spacing: 10){
+                      Text("\(weather.city), \(weather.country)")
+                          .font(.title2)
+                          .fontWeight(.semibold)
+                      
+                      Text("\(Int(weather.temperature))")
+                          .font(.system(size: 54, weight: .bold))
+                      
+                      Text(weather.description)
+                          .foregroundStyle(.secondary)
+                  }
+                  .padding(.horizontal, 16)
+              } else if !viewModel.isLoading && viewModel.errorMessage == nil {
+                  Text("Нет данных")
+                      .foregroundStyle(.secondary)
+                      .padding(.horizontal, 16)
+              }
+          }
         }
-        .padding()
+      .task {
+          await viewModel.loadWeather(for: viewModel.city)
+      }
     }
 }
