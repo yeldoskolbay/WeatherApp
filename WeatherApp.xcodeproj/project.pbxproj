@@ -41,7 +41,7 @@
 				Day.swift,
 				ForeCast.swift,
 				ForeCastDay.swift,
-				Hour.swift,
+				HourlyForecast.swift,
 				Location.swift,
 				WeatherResponse.swift,
 			);
