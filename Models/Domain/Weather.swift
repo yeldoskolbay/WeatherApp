@@ -10,6 +10,7 @@ struct Weather{
     let description: String
     let iconURL: String
     let forecast: [DailyForecast]
+    let hourly: [HourlyForecast]
 }
 
 

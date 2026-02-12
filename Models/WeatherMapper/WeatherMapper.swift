@@ -22,9 +22,18 @@ struct WeatherMapper{
                 let icon = condition.icon
                     else { return nil }
             
-            return DailyForecast(date: date, maxTemp: max, minTemp: min, description: text, iconURL: "https: \(icon)")
+            return DailyForecast(date: date, maxTemp: max, minTemp: min, description: text, iconURL: normolizeURL(icon))
             
         }
-        return Weather(city: location.name ?? "", country: location.country ?? "", temperature: current.temp_c ?? 0, description: current.condition?.text ?? "", iconURL: "https: \(current.condition?.icon ?? "")", forecast: daily)
+        return Weather(city: location.name ?? "", country: location.country ?? "", temperature: current.temp_c ?? 0, description: current.condition?.text ?? "", iconURL: normolizeURL(current.condition?.icon), forecast: daily)
+    }
+    
+    private  static func normolizeURL(_ icon: String?) -> String{
+        guard let icon = icon else { return "" }
+        
+        if icon.hasPrefix("http") {
+            return icon
+        }
+        return "https:\(icon)"
     }
 }

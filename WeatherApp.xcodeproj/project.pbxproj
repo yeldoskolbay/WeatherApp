@@ -18,6 +18,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		E1437C2E2F3E139D00D8C8BE /* Exceptions for "WeatherMapper" folder in "WeatherApp" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				WeatherMapper.swift,
+			);
+			target = E15B125F2F3C4D28000E4D59 /* WeatherApp */;
+		};
 		E15B127D2F3C5999000E4D59 /* Exceptions for "Network" folder in "WeatherApp" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -34,6 +41,7 @@
 				Day.swift,
 				ForeCast.swift,
 				ForeCastDay.swift,
+				Hour.swift,
 				Location.swift,
 				WeatherResponse.swift,
 			);
@@ -44,7 +52,6 @@
 			membershipExceptions = (
 				DailyForecast.swift,
 				Weather.swift,
-				WeatherMapper.swift,
 			);
 			target = E15B125F2F3C4D28000E4D59 /* WeatherApp */;
 		};
@@ -59,6 +66,14 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		E1437C2D2F3E139000D8C8BE /* WeatherMapper */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				E1437C2E2F3E139D00D8C8BE /* Exceptions for "WeatherMapper" folder in "WeatherApp" target */,
+			);
+			path = WeatherMapper;
+			sourceTree = "<group>";
+		};
 		E15B12622F3C4D28000E4D59 /* WeatherApp */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = WeatherApp;
@@ -158,6 +173,7 @@
 		E15B12772F3C584C000E4D59 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				E1437C2D2F3E139000D8C8BE /* WeatherMapper */,
 				E15B12912F3C7078000E4D59 /* Domain */,
 				E15B12802F3C631B000E4D59 /* DTO */,
 			);

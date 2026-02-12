@@ -3,6 +3,7 @@ import SwiftUI
 
 struct RemoteImage: View {
     let urlString: String
+    
     var body: some View {
         AsyncImage(url: URL(string: urlString)) { phase in
         switch phase {

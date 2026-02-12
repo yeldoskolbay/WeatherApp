@@ -13,7 +13,7 @@ struct HomeView: View {
                 .padding(.horizontal)
             
             Button {
-                Task { await viewModel.loadWeather(for: city)}
+                Task { await viewModel.loadWeather(for: city) }
             } label: {
                 Text("Загрузить погоду")
             }
