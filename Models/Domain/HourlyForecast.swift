@@ -8,4 +8,5 @@ struct HourlyForecast: Identifiable {
     let time: String
     let temperature: Double
     let iconURL: String
+    let isNow: Bool
 }
