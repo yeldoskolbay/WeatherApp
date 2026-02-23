@@ -112,6 +112,11 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
+		E18B161F2F4C8205006B6401 /* Hourly */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Hourly;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +196,7 @@
 		E15B12792F3C5864000E4D59 /* UIComponents */ = {
 			isa = PBXGroup;
 			children = (
+				E18B161F2F4C8205006B6401 /* Hourly */,
 				E15B12A12F3CAD19000E4D59 /* RemoteImage.swift */,
 			);
 			path = UIComponents;
@@ -213,6 +219,7 @@
 			);
 			fileSystemSynchronizedGroups = (
 				E15B12622F3C4D28000E4D59 /* WeatherApp */,
+				E18B161F2F4C8205006B6401 /* Hourly */,
 			);
 			name = WeatherApp;
 			packageProductDependencies = (
