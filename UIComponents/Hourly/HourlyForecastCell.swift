@@ -6,10 +6,11 @@ import SwiftUI
 struct HourlyForecastCell: View {
     let item: HourlyForecast
     var body: some View {
-        VStack(spacing: 8){
-            Text(shortTime(item.time))
+        VStack(spacing: 8) {
+            Text(item.time)
                 .font(.subheadline)
-                .foregroundStyle(.secondary)
+                .fontWeight(item.isNow ? .semibold : .regular)
+                .foregroundStyle(item.isNow ? .primary : .secondary)
             
             RemoteImage(urlString: item.iconURL)
                 .frame(width: 32, height: 32)
@@ -20,12 +21,12 @@ struct HourlyForecastCell: View {
         .frame(width: 75)
         .padding(.vertical, 12)
         .background(.thinMaterial)
+        .overlay(
+            RoundedRectangle(cornerRadius: 14)
+                .stroke(.primary.opacity(0.35), lineWidth: 1)
+                .opacity(item.isNow ? 1 : 0)
+        )
         .clipShape(RoundedRectangle(cornerRadius: 14))
     }
-    
-    
-    private func shortTime(_ raw: String) -> String {
-        let parts = raw.split(separator: "")
-        return parts.count == 2 ? String(parts[1]) : raw
-    }
 }
+
