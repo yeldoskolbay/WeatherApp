@@ -32,6 +32,7 @@ struct HomeView: View {
               }
               if let weather = viewModel.weather {
                   HourlyForecastSection(items: weather.hourly)
+                  DailyForecastSection(items: weather.forecast)
                   VStack(alignment: .leading, spacing: 10){
                       Text("\(weather.city), \(weather.country)")
                           .font(.title2)
