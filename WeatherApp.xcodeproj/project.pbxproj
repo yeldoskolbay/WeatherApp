@@ -97,6 +97,16 @@
 			path = Location;
 			sourceTree = "<group>";
 		};
+		E14F83BE2F58882C008F0525 /* Background */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Background;
+			sourceTree = "<group>";
+		};
+		E14F83C22F588992008F0525 /* Common */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Common;
+			sourceTree = "<group>";
+		};
 		E15B12622F3C4D28000E4D59 /* WeatherApp */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
@@ -238,6 +248,8 @@
 		E15B12792F3C5864000E4D59 /* UIComponents */ = {
 			isa = PBXGroup;
 			children = (
+				E14F83C22F588992008F0525 /* Common */,
+				E14F83BE2F58882C008F0525 /* Background */,
 				E18B162E2F4CAE1B006B6401 /* Current */,
 				E18B16262F4CA651006B6401 /* Daily */,
 				E18B161F2F4C8205006B6401 /* Hourly */,
@@ -262,6 +274,8 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
+				E14F83BE2F58882C008F0525 /* Background */,
+				E14F83C22F588992008F0525 /* Common */,
 				E15B12622F3C4D28000E4D59 /* WeatherApp */,
 				E18B161F2F4C8205006B6401 /* Hourly */,
 				E18B16262F4CA651006B6401 /* Daily */,

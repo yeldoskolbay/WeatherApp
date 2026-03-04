@@ -4,25 +4,24 @@ import SwiftUI
 
 struct HourlyForecastSection: View {
     let items: [HourlyForecast]
+    
     var body: some View {
-        VStack(alignment: .leading) {
+        VStack(alignment: .leading, spacing: 10) {
             Text("Сегодня по часам")
                 .font(.headline)
-                .padding(.horizontal, 16)
-            
+            Divider()
             ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 12){
+                HStack(spacing: 10){
                     ForEach(items) { item in
                         HourlyForecastCell(item: item)
                     }
                 }
-                .padding(.horizontal, 16)
-                .padding(.vertical, 4)
+                .padding(.horizontal, 12)
             }
         }
-        .padding(16)
+        .padding(12)
         .background(.thinMaterial)
-        .clipShape(RoundedRectangle(cornerRadius: 18))
+        .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
     }
 }
 

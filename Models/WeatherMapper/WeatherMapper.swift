@@ -31,43 +31,35 @@ struct WeatherMapper{
     }
     
     private static func mapNext12Hours(_ hours: [HourDTO]) -> [HourlyForecast]{
+        
         let now = Date()
         let calendar = Calendar.current
         
+        let startHour = calendar.dateInterval(of: .hour, for: now)?.start ?? now
+        
         // Парсинг времени из API: "yyyy-MM-dd HH:mm"
-        let parsed: [(date : Date, dto: HourDTO)] = hours.compactMap { h in
-            guard let raw = h.time, let d = parseHourDate(raw) else { return nil }
-            return (d, h)
-        }.sorted { $0.date < $1.date }
+        let parser = DateFormatter()
+        parser.locale = Locale(identifier: "en_US_POSIX")
+        parser.dateFormat = "yyyy-MM-dd HH:mm"
+        parser.timeZone = .current
+        
+        let parsed: [(date : Date, dto: HourDTO)] = hours.compactMap { hour in
+            
+            guard let raw = hour.time, let date = parser.date(from: raw)
+            else { return nil }
+            return (date, hour)
+        }
+            .sorted { $0.date < $1.date }
         
         //Старт с текущего часа
-        let startHour = calendar.dateInterval(of: .hour, for: .now)?.start ?? now
         let startIndex = parsed.firstIndex(where: { $0.date >= startHour }) ?? 0
         
-        let next = parsed.dropFirst(startIndex).prefix(12)
-        
-        let formatter = DateFormatter()
-        formatter.locale = Locale(identifier: "ru_RU")
-        formatter.dateFormat = "HH:mm"
-        
-        return next.map { pair in
-            let dto = pair.dto
-            let date = pair.date
-            
-            let isNow = calendar.isDate(date, equalTo: now, toGranularity: .hour)
-            let label = isNow ? "Сейчас" : formatter.string(from: date)
-            
-            return HourlyForecast(time: label, temperature: dto.temp_c ?? 0, iconURL: normolizeURL(dto.condition?.icon), isNow: isNow)
+        let nextHours = parsed.dropFirst(startIndex).prefix(12)
+        return nextHours.map { pair in
+            HourlyForecast(date: pair.date, temperature: pair.dto.temp_c ?? 0, iconURL: normolizeURL(pair.dto.condition?.icon))
         }
     }
     
-    private static func parseHourDate(_ raw: String) -> Date? {
-        let f = DateFormatter()
-        f.locale = Locale(identifier: "en_US_POSIX")
-        f.dateFormat = "yyyy-MM-dd HH:mm"
-        f.timeZone = .current
-        return f.date(from: raw)
-    }
     private  static func normolizeURL(_ icon: String?) -> String{
         guard let icon = icon else { return "" }
         

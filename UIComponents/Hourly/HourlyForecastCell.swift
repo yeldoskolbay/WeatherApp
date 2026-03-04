@@ -7,26 +7,24 @@ struct HourlyForecastCell: View {
     let item: HourlyForecast
     var body: some View {
         VStack(spacing: 8) {
-            Text(item.time)
+            Text(item.hourText)
                 .font(.subheadline)
-                .fontWeight(item.isNow ? .semibold : .regular)
-                .foregroundStyle(item.isNow ? .primary : .secondary)
+                .fontWeight(item.isCurrentHour ? .semibold : .regular)
+                .foregroundStyle(item.isCurrentHour ? .primary : .secondary)
             
             RemoteImage(urlString: item.iconURL)
-                .frame(width: 32, height: 32)
+                .frame(width: 28, height: 28)
             
             Text("\(Int(round(item.temperature)))")
                 .font(.headline)
         }
-        .frame(width: 75)
-        .padding(.vertical, 12)
-        .background(.thinMaterial)
-        .overlay(
-            RoundedRectangle(cornerRadius: 14)
-                .stroke(.primary.opacity(0.35), lineWidth: 1)
-                .opacity(item.isNow ? 1 : 0)
-        )
-        .clipShape(RoundedRectangle(cornerRadius: 14))
+        .frame(width: 74, height: 110)
+        .background(item.isCurrentHour ? .ultraThinMaterial : .thinMaterial)
+        .overlay{
+            RoundedRectangle(cornerRadius: 16, style: .continuous)
+                .strokeBorder(item.isCurrentHour ? Color.primary.opacity(0.35) : Color.clear, lineWidth: 1)
+        }
+        .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
     }
 }
 
