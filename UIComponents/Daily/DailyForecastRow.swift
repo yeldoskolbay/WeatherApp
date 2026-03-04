@@ -21,10 +21,11 @@ struct DailyForecastRow: View {
             
             Text("\(Int(item.minTemp))")
                 .foregroundStyle(.secondary)
+                .frame(width: 32, alignment: .trailing)
             
             Text("\(Int(item.maxTemp))")
                 .fontWeight(.semibold)
-                .frame(width: 44, alignment: .trailing)
+                .frame(width: 40, alignment: .trailing)
         }
         .padding(.vertical, 8)
     }

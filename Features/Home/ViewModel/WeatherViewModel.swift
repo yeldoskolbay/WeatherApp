@@ -1,6 +1,6 @@
 
 import Foundation
-
+import CoreLocation
 
 @MainActor
 
@@ -18,6 +18,7 @@ final class WeatherViewModel: ObservableObject {
     
     func load() async {
         let trimmed = city.trimmingCharacters(in: .whitespacesAndNewlines)
+        
         guard !trimmed.isEmpty else {
             weather = nil
             errorMessage = "Введите город"
@@ -27,17 +28,46 @@ final class WeatherViewModel: ObservableObject {
         await loadWeather(for: trimmed)
     }
     
+    // Загрузка по названию города
     func loadWeather(for city: String) async {
+        let trimmed = city.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !trimmed.isEmpty else { return }
+        
+        
+        await fetch(query: trimmed)
+    }
+    
+    // Загрузка по координатам (геолокация)
+    func loadWeather(for location: CLLocation) async {
+        let lat = location.coordinate.latitude
+        let lon = location.coordinate.longitude
+        let query = "\(lat),\(lon)"
+        
+        await fetch(query: query)
+    }
+    
+    
+    // Перезагрузка текущего города
+    func reload() {
+        Task{
+            await load()
+        }
+    }
+    
+    // Core fetch logic
+    
+    private func fetch(query: String) async {
         isLoading = true
         errorMessage = nil
         
+        defer { isLoading = false }
+        
         do {
-            let dto = try await network.fetchForecast(for: city)
+            let dto = try await network.fetchForecast(for: query)
             
             guard let mapped = WeatherMapper.map(from: dto) else {
                 weather = nil
                 errorMessage = "Не удалось обработать данные"
-                isLoading = false
                 return
             }
             
@@ -46,14 +76,6 @@ final class WeatherViewModel: ObservableObject {
         } catch {
             weather = nil
             errorMessage = error.localizedDescription
-        }
-        
-        isLoading = false
-    }
-    
-    func reload() {
-        Task{
-            await load()
         }
     }
 }

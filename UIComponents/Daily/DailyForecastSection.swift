@@ -12,12 +12,14 @@ struct DailyForecastSection: View {
             VStack{
                 ForEach(items) { item in
                 DailyForecastRow(item: item)
+                        .padding(.vertical, 6)
                     Divider()
                 }
             }
             .padding(.horizontal, 12)
+            .padding(.vertical, 8)
             .background(.thinMaterial)
-            .clipShape(RoundedRectangle(cornerRadius: 14))
+            .clipShape(RoundedRectangle(cornerRadius: 18))
         }
         .padding(.horizontal, 16)
     }

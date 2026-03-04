@@ -25,6 +25,20 @@
 			);
 			target = E15B125F2F3C4D28000E4D59 /* WeatherApp */;
 		};
+		E14F83B92F56FC16008F0525 /* Exceptions for "WeatherApp" folder in "WeatherApp" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = E15B125F2F3C4D28000E4D59 /* WeatherApp */;
+		};
+		E14F83BD2F56FC68008F0525 /* Exceptions for "Location" folder in "WeatherApp" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				LocationManager.swift,
+			);
+			target = E15B125F2F3C4D28000E4D59 /* WeatherApp */;
+		};
 		E15B127D2F3C5999000E4D59 /* Exceptions for "Network" folder in "WeatherApp" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -75,8 +89,19 @@
 			path = WeatherMapper;
 			sourceTree = "<group>";
 		};
+		E14F83BA2F56FC5A008F0525 /* Location */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				E14F83BD2F56FC68008F0525 /* Exceptions for "Location" folder in "WeatherApp" target */,
+			);
+			path = Location;
+			sourceTree = "<group>";
+		};
 		E15B12622F3C4D28000E4D59 /* WeatherApp */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				E14F83B92F56FC16008F0525 /* Exceptions for "WeatherApp" folder in "WeatherApp" target */,
+			);
 			path = WeatherApp;
 			sourceTree = "<group>";
 		};
@@ -125,6 +150,11 @@
 		E18B162B2F4CA78E006B6401 /* Extension */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		E18B162E2F4CAE1B006B6401 /* Current */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Current;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -182,6 +212,7 @@
 		E15B12762F3C5841000E4D59 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				E14F83BA2F56FC5A008F0525 /* Location */,
 				E15B127A2F3C595C000E4D59 /* Network */,
 			);
 			path = Services;
@@ -207,6 +238,7 @@
 		E15B12792F3C5864000E4D59 /* UIComponents */ = {
 			isa = PBXGroup;
 			children = (
+				E18B162E2F4CAE1B006B6401 /* Current */,
 				E18B16262F4CA651006B6401 /* Daily */,
 				E18B161F2F4C8205006B6401 /* Hourly */,
 				E15B12A12F3CAD19000E4D59 /* RemoteImage.swift */,
@@ -234,6 +266,7 @@
 				E18B161F2F4C8205006B6401 /* Hourly */,
 				E18B16262F4CA651006B6401 /* Daily */,
 				E18B162B2F4CA78E006B6401 /* Extension */,
+				E18B162E2F4CAE1B006B6401 /* Current */,
 			);
 			name = WeatherApp;
 			packageProductDependencies = (
@@ -427,6 +460,8 @@
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WeatherApp/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "$(DEVELOPMENT_LANGUAGE)";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -454,6 +489,8 @@
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WeatherApp/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "$(DEVELOPMENT_LANGUAGE)";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

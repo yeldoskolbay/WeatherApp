@@ -20,6 +20,9 @@ struct HourlyForecastSection: View {
                 .padding(.vertical, 4)
             }
         }
+        .padding(16)
+        .background(.thinMaterial)
+        .clipShape(RoundedRectangle(cornerRadius: 18))
     }
 }
 
