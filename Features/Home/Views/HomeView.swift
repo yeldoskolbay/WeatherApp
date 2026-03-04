@@ -9,23 +9,35 @@ struct HomeView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 16){
-                HStack{
-                    TextField("Город", text: $viewModel.city)
+                HStack(spacing: 12) {
+                    HStack{
+                        Image(systemName: "magnifyingglass")
+                            .foregroundStyle(.secondary)
+                        
+                        TextField("Город", text: $viewModel.city)
+                            .textInputAutocapitalization(.words)
+                            .autocorrectionDisabled()
+                        
+                        Button {
+                            locationManager.requestPermission()
+                            locationManager.requestLocation()
+                        } label: {
+                            Image(systemName: "location.fill")
+                        }
+                        .buttonStyle(.plain)
+                        .foregroundStyle(.blue)
+                    }
+                    .padding(.horizontal, 12)
+                    .padding(.vertical, 10)
+                    .background(.thinMaterial)
+                    .clipShape(RoundedRectangle(cornerRadius: 14))
                     
                     Button {
-                        Task { await viewModel.loadWeather(for: viewModel.city)}
+                        viewModel.reload()
                     } label: {
                         Text("Загрузить")
                     }
                     .buttonStyle(.borderedProminent)
-                    
-                    Button {
-                        locationManager.requestPermission()
-                        locationManager.requestLocation()
-                    } label: {
-                        Image(systemName: "location.fill")
-                    }
-                    .buttonStyle(.bordered)
                 }
                 .padding(.horizontal, 16)
                 .padding(.top, 12)
@@ -61,12 +73,10 @@ struct HomeView: View {
             await viewModel.loadWeather(for: viewModel.city)
         }
         
-        .onChange(of: locationManager.lastLocation) { _, newsLocation in
-            guard let location = newsLocation else { return }
-            
-            Task {
-                await viewModel.loadWeather(for: location)
-            }
+        .onChange(of: locationManager.cityName) { _, newCity in
+            guard let city = newCity, !city.isEmpty else { return }
+            viewModel.city = city
+            viewModel.reload()
         }
     }
 }
