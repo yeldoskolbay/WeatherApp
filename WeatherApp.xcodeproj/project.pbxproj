@@ -461,7 +461,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WeatherApp/Info.plist;
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "$(DEVELOPMENT_LANGUAGE)";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Приложение использует вашу геолокацию, чтобы показать погоду в вашем текущем городе.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -490,7 +490,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WeatherApp/Info.plist;
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "$(DEVELOPMENT_LANGUAGE)";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Приложение использует вашу геолокацию, чтобы показать погоду в вашем текущем городе.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
